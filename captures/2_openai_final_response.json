@@ -1,0 +1,45 @@
+{
+    "request": {
+        "model": "gpt-3.5-turbo",
+        "messages": [
+            {
+                "role": "user",
+                "content": "What's the weather like in Bangalore today?"
+            },
+            {
+                "role": "assistant",
+                "content": null,
+                "function_call": {
+                    "name": "get_current_weather",
+                    "arguments": "{\"location\": \"Bangalore, India\"}"
+                }
+            },
+            {
+                "role": "function",
+                "name": "get_current_weather",
+                "content": "{\"temperature\": 27, \"unit\": \"celsius\", \"description\": \" temperate weather with mild sun and cloudy\"}"
+            }
+        ]
+    },
+    "response": {
+        "id": "chatcmpl-7lwHSHwfcn2jA0q2YqocxH7O2jW6A",
+        "object": "chat.completion",
+        "created": 1691659802,
+        "model": "gpt-3.5-turbo-0613",
+        "choices": [
+            {
+                "index": 0,
+                "message": {
+                    "role": "assistant",
+                    "content": "The weather in Bangalore today is temperate with a temperature of 27°C. It is a mix of mild sun and clouds."
+                },
+                "finish_reason": "stop"
+            }
+        ],
+        "usage": {
+            "prompt_tokens": 70,
+            "completion_tokens": 26,
+            "total_tokens": 96
+        }
+    }
+}

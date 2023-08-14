@@ -1,0 +1,59 @@
+{
+    "request": {
+        "model": "gpt-3.5-turbo",
+        "messages": [
+            {
+                "role": "user",
+                "content": "What's the weather like in Bangalore today?"
+            }
+        ],
+        "functions": [
+            {
+                "name": "get_current_weather",
+                "description": "Get the current weather in a given location",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "location": {
+                            "type": "string",
+                            "description": "The city and state, e.g. Bangalore, India"
+                        },
+                        "unit": {
+                            "type": "string",
+                            "enum": [
+                                "celsius",
+                                "fahrenheit"
+                            ]
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "response": {
+        "id": "chatcmpl-7lvhnOs5HJNBq1Eik5rNGCNv89QJx",
+        "object": "chat.completion",
+        "created": 1691657591,
+        "model": "gpt-3.5-turbo-0613",
+        "choices": [
+            {
+                "index": 0,
+                "message": {
+                    "role": "assistant",
+                    "content": null,
+                    "function_call": {
+                        "name": "get_current_weather",
+                        "arguments": "{\"location\": \"Bangalore, India\"}"
+                    }
+                }
+            },
+            "finish_reason": "function_call"
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 82,
+        "completion_tokens": 19,
+        "total_tokens": 101
+    }
+}
+}
